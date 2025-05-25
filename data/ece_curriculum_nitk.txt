@@ -1,0 +1,70 @@
+EC101 Joy of Electronics and Communication (2-0-3) 4
+EC102 Circuits and Systems (3-1-0) 4
+EC200 Digital System Design (3-1-0) 4
+EC201 Analog Electronics (3-1-0) 4
+EC202 Analog and Digital Communication (3-1-0) 4
+EC203 Linear Algebra and Probability Theory (3-1-0) 4
+EC204 Digital System Design Lab (0-0-3) 2
+EC205 Analog Electronics Lab (0-0-3) 2
+EC206 Microprocessors (3-1-0) 4
+EC207 Electromagnetic Waves and Transmission Lines (3-1-0) 4
+EC208 Digital Signal Processing (3-1-0) 4
+EC209 Control Systems (3-1-0) 4
+EC210 Microprocessors Lab (0-0-3) 2
+EC211 Digital Signal Processing Lab (0-0-3) 2
+EC300 VLSI Design (3-1-0) 4
+EC301 RF Components and Circuits (3-1-0) 4
+EC302 VLSI Design Lab (0-0-3) 2
+EC303 Communication Lab-I (0-0-3) 2
+EC304 Communication Lab-II (0-0-3) 2 
+EC340 Computer Organization and Architecture (3-1-0) 4
+EC341 Computer Arithmetic (3-1-0) 4
+EC342 Embedded System Design (2-0-3) 4
+EC343 FPGA based System Design (2-0-3) 4
+EC344 Analog Integrated Circuits (3-1-0) 4
+EC345 Data Structures and Algorithms (3-0-2) 4
+EC346 Foundations of Machine Learning (3-1-0) 4
+EC347 Speech and Audio Processing (3-1-0) 4
+EC348 Image and Video Processing (3-1-0) 4
+EC349 Applied Number Theory (3-1-0) 4
+EC350 Numerical Analysis (3-1-0) 4
+EC351 Satellite Communications (3-1-0) 4 
+EC352 Principles of Modern Radar and Techniques (3-1-0) 4
+EC353 Modern Electronic Navigation Systems (3-1-0) 4
+EC354 Communication Networks (3-1-0) 4
+EC355 Wireless Mobile Communication (3-1-0) 4
+EC356 Information Theory and Coding (3-1-0) 4
+EC357 Adhoc and Sensor Networks (3-1-0) 4
+EC358 Multimedia Communication Techniques (3-1-0) 4
+EC359 Software Defined and Cognitive Radio (3-1-0) 4
+EC360 Machin Learning for Wireless Communication Systems (3-1-0) 4
+EC361 Sparse Representations and Compressive Sensing (3-1-0) 4
+EC362 Deep Reinforcement Learning (3-1-0) 4
+EC363 Machine Learning Applications in Radar Signal Procesing (3-1-0) 4
+EC440 VLSI CAD (3-1-0) 4
+EC441 Mixed Signal Design (3-1-0) 4
+EC442 Advanced Computer Architecture (3-1-0) 4
+EC443 VLSI Testing and Testability (3-1-0) 4
+EC444 Synthesis and Optimization of Digital Circuits (3-1-0) 4
+EC445 Techniques in Low Power VLSI (3-1-0) 4
+EC446 Submicron Devices (3-1-0) 4
+EC447 Active Filters (3-1-0) 4
+EC448 Heterogeneous and Parallel Computing (3-0-2) 4
+EC449 Algorithms and Architectures for Signal Processing (3-1-0) 4
+EC450 Analog and Digital Filter Design (3-1-0) 4
+EC451 Advanced Digital Signal Processing (3-1-0) 4
+EC452 Real Time Signal Processing (2-0-3) 4
+EC453 Fourier and Wavelet Signal Processing (3-1-0) 4
+EC454 Mathematical Algorithms for Signal Processing (3-1-0) 4
+EC455 Digital Signal Compression (3-1-0) 4
+EC456 Dynamical Systems, Chaos and Fractals (3-1-0) 4
+EC457 Statistical Analysis (3-1-0) 4
+EC458 Stochastic Processes (3-1-0) 4
+EC459 Optimization and Applications (3-1-0) 4
+EC460 Neural Networks and Deep Learning (3-1-0) 4
+EC461 Spread Spectrum Communication (3-1-0) 4
+EC462 Error Control Coding (3-1-0) 4
+EC463 Optical Communication Systems and Networks (3-1-0) 4
+EC464 Radar Signal Processing (3-1-0) 4
+EC465 Algorithms for Parameter and State Estimation (3-1-0) 4 
+
