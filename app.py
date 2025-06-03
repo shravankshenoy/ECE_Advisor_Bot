@@ -1,7 +1,9 @@
 import os
+import json
 import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
+from tools.curriculum_tool import get_courses
 
 load_dotenv()
 
@@ -36,7 +38,7 @@ You are a helpful assistant who is an expert on everything related to NITK Elect
 Guidelines:
 1. You are **not** allowed to answer questions that are not directly related to NITK. This is very important. If the user query is **not relaated to NITK**, respond by saying its out of scope and that you're here to help with NITK-related questions
 2. **If a user query is vague or underspecified**, do not assume. Instead, ask follow-up questions.
-
+3. For any questions related to ECE courses or curriculum, use the curriculum_tool in your planning
 
 Be concise when appropriate, but offer long, elaborate answers when more detail would be helpful.
 """
@@ -60,6 +62,28 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
+
+tools = [
+    {
+        "type":"function",
+        "function": {
+            "name":"get_courses",
+            "description": "Get courses relevant to the user query",
+            "parameters":{
+                "type": "object",
+                "properties": {
+                    "user_prompt":{
+                        "type": "string",
+                        "description": "User query"
+                    }
+                },
+                "required":["user_prompt"]
+            }
+
+        }
+    }
+]
+
 # Handle user input
 if st.session_state.client:
     if user_input := st.chat_input("Enter your message here"):
@@ -77,19 +101,70 @@ if st.session_state.client:
             response = st.session_state.client.chat.completions.create(
                 temperature=0.1,
                 messages=st.session_state.messages,
-                model="gpt-3.5-turbo"
+                model="gpt-3.5-turbo",
+                tools=tools
             )
 
-            if response:
+            response = response.choices[0].message
+
+            if response.content:
                 status_container.empty()
                 with response_container.container():
-                    st.markdown(response.choices[0].message.content)
+                    st.markdown(response.content)
                 
                 st.session_state.messages.append({
                     "role":"assistant",
-                    "content": response.choices[0].message.content
+                    "content": response.content
                 })
                 print(st.session_state.messages)
+            
+            if response.tool_calls:
+                tool_call = response.tool_calls[0]
+                function_name = tool_call.function.name
+                function_args = json.loads(tool_call.function.arguments)
+
+                print(function_name, function_args)
+                if function_name == 'get_courses':
+                    function_response = get_courses(**function_args)
+                    print(function_response)
+
+                st.session_state.messages.append({
+                    "role":"assistant",
+                    "content": None,
+                    "tool_calls": [{
+                        "id": tool_call.id,
+                        "type": "function",
+                        "function": {
+                            "name": function_name,
+                            "arguments": tool_call.function.arguments
+                        }
+                     }]
+                })
+
+                st.session_state.messages.append({
+                    "role":"tool",
+                    "tool_call_id": tool_call.id,
+                    "content":str(function_response)
+                }                
+                )
+                print(st.session_state.messages)
+                response = st.session_state.client.chat.completions.create(
+                temperature=0.1,
+                messages=st.session_state.messages,
+                model="gpt-3.5-turbo",
+                )
+
+                response = response.choices[0].message
+                status_container.empty()
+                with response_container.container():
+                    st.markdown(response.content)
+
+                st.session_state.messages.append(
+                    {
+                        "role": "assistant",
+                        "content": response.content
+                    }
+                )
             
             
 
